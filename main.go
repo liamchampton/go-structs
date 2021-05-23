@@ -49,12 +49,11 @@ func main() {
 		},
 	}
 
-	jimPointer := &jim
-	jimPointer.updateName("Jimmy")
+	jim.updateName("Jimmy")
 	jim.print()
 }
 
-func (pointerToPerson *person) updateName(newFirstName string) {
+func (pointerToPerson *person) updateName(newFirstName string) { //receiver has a pointer to person
 	(*pointerToPerson).firstName = newFirstName
 }
 
