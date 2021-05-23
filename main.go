@@ -9,10 +9,18 @@ type contactInfo struct {
 	zipCode int
 }
 
+// option 1 to embed a struct
+// type person struct {
+// 	firstName string
+// 	lastName  string
+// 	contact   contactInfo
+// }
+
+// option 2 to embed a struct
 type person struct {
 	firstName string
 	lastName  string
-	contact   contactInfo
+	contactInfo
 }
 
 func main() {
@@ -35,11 +43,15 @@ func main() {
 	jim := person{
 		firstName: "Jim",
 		lastName:  "Party",
-		contact: contactInfo{
+		contactInfo: contactInfo{
 			email:   "jim.party@hotmail.com",
 			zipCode: 94123,
 		},
 	}
 
-	fmt.Printf("%+v", jim)
+	jim.print()
+}
+
+func (p person) print() {
+	fmt.Printf("%+v", p)
 }
